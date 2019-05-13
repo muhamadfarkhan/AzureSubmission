@@ -43,7 +43,7 @@
             $password = $_POST['password'];
             $date = date("Y-m-d");
             // Insert data
-            $sql_insert = "INSERT INTO Users (name, email, password, date) 
+            $sql_insert = "INSERT INTO Users (name, email, password, created_at) 
                         VALUES (?,?,?,?)";
             $stmt = $conn->prepare($sql_insert);
             $stmt->bindValue(1, $name);
@@ -71,7 +71,7 @@
                     echo "<tr><td>".$registrant['name']."</td>";
                     echo "<td>".$registrant['email']."</td>";
                     echo "<td>".$registrant['job']."</td>";
-                    echo "<td>".$registrant['date']."</td></tr>";
+                    echo "<td>".$registrant['created_at']."</td></tr>";
                 }
                 echo "</table>";
             } else {
