@@ -40,7 +40,7 @@
         try {
             $name = $_POST['name'];
             $email = $_POST['email'];
-            $job = $_POST['job'];
+            $password = $_POST['password'];
             $date = date("Y-m-d");
             // Insert data
             $sql_insert = "INSERT INTO Users (name, email, password, date) 
@@ -48,7 +48,7 @@
             $stmt = $conn->prepare($sql_insert);
             $stmt->bindValue(1, $name);
             $stmt->bindValue(2, $email);
-            $stmt->bindValue(3, $job);
+            $stmt->bindValue(3, $password);
             $stmt->bindValue(4, $date);
             $stmt->execute();
         } catch(Exception $e) {
@@ -65,7 +65,7 @@
                 echo "<table>";
                 echo "<tr><th>Name</th>";
                 echo "<th>Email</th>";
-                echo "<th>Job</th>";
+                echo "<th>Password</th>";
                 echo "<th>Date</th></tr>";
                 foreach($registrants as $registrant) {
                     echo "<tr><td>".$registrant['name']."</td>";
